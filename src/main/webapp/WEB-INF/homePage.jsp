@@ -15,10 +15,9 @@ width: 300px;
 </style>
 <body>
 
-<h1>Welcome ${currentUser.firstName}!</h1>
+<h1>Welcome ${currentUser.identifier}!</h1>
 <div id="box">
-<P>First Name: ${currentUser.firstName}</P>
-<P>Last Name: ${currentUser.lastName}</P>
+<P>Username: ${currentUser.identifier}</P>
 <P>Email: ${currentUser.username}</P>
 <P>Sign up date: ${currentUser.createdAt}</P>
 <P>Last Sign in: ${currentUser.updatedAt}</P>

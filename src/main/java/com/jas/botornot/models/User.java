@@ -24,9 +24,7 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	@Size(min=1)
-	private String firstName;
-	@Size(min=1)
-	private String lastName;
+	private String identifier;
 	@Size(min=1)
 	private String username;
 	@Size(min=10)
@@ -51,17 +49,11 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getIdentifier() {
+		return identifier;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
 	}
 	public String getUsername() {
 		return username;
