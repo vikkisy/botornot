@@ -9,7 +9,7 @@
 <title>Admin Dash</title>
 </head>
 <body>
-<h1>Welcome ${currentUser.firstName}!</h1>
+<h1>Welcome ${currentUser.identifier}!</h1>
 <table class="table">
 <tr>
 	<th>Name</th>
@@ -18,7 +18,7 @@
 <tr>  
 <c:forEach items="${users}" var="user">
   
-    <td><c:out value="${user.firstName}"/> <c:out value="${user.lastName}"/></td>
+    <td><c:out value="${user.identifier}"/></td>
     <td><c:out value="${user.username}"/></td>
     <td><a href="/delete/${user.id}">delete</a> <a href="/makeadmin/${user.id}">make-admin</a></td>
 </tr>
@@ -26,7 +26,7 @@
 
 <c:forEach items="${admins}" var="admin">
   
-    <td><c:out value="${admin.firstName}"/> <c:out value="${admin.lastName}"/></td>
+    <td><c:out value="${admin.identifier}"/></td>
     <td><c:out value="${admin.username}"/></td>
     <td>admin</td>
 </tr>

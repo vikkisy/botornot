@@ -106,4 +106,10 @@ public class Main {
     		userService.makeAdmin(id);
         return "redirect:/admin";
     }
+    @RequestMapping("/chat")
+    public String chatPage(Principal principal, Model model) {
+        String username = principal.getName();
+        model.addAttribute("currentUser", userService.findByUsername(username));
+    		return "chat";
+    }
 }
