@@ -27,7 +27,7 @@ public class User {
 	private String identifier;
 	@Size(min=1)
 	private String username;
-	@Size(min=10)
+	@Size(min=8)
 	private String password;
 	@Transient
 	private String passwordConf;
