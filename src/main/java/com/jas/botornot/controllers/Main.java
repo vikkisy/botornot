@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.socket.config.WebSocketMessageBrokerStats;
 
 import com.jas.botornot.models.ActiveUserStore;
+import com.jas.botornot.models.ChatMessage;
+import com.jas.botornot.models.Role;
 import com.jas.botornot.models.User;
 import com.jas.botornot.services.UserService;
 import com.jas.botornot.validator.UserValidator;
@@ -32,6 +34,7 @@ public class Main {
     private UserService userService;
     // NEW
     private UserValidator userValidator;
+    private ChatMessage chatMessage;
     
     @Autowired
     ActiveUserStore activeUserStore;
@@ -118,8 +121,10 @@ public class Main {
     @RequestMapping("/chat")
     public String chatPage(Principal principal, Model model, HttpSession session) {
         String username = principal.getName();
+        List<User> all = userService.findAll();
+        model.addAttribute("all", all);
         model.addAttribute("currentUser", userService.findByUsername(username));
-    		return "chat";
+    	return "chat";
     }
     @RequestMapping(value = "/loggedUsers", method = RequestMethod.GET)
     public String getLoggedUsers(Locale locale, Model model) {

@@ -10,14 +10,13 @@
 </head>
 <body>
 </body>
-<c:out value="${currentUser.identifier}" />
+
 <input type="hidden" id="name" value="${currentUser.identifier}"/>
 
     <div id="chat-page" class="hidden">
         <div class="chat-container">
             <div class="chat-header">
-            		<ul id="users"></ul>
-                <h2>Spring WebSocket Chat Demo</h2>
+                <h2>BOT OR NOT</h2>
             </div>
             <div class="connecting">
                 Connecting...
@@ -34,7 +33,12 @@
                 </div>
             </form>
         </div>
+        <div class="allUsers">
+
+		</div>
     </div>
+    
+    
 
     <script src="/js/sockjs.min.js"></script>
     <script src="/js/stomp.min.js"></script>
