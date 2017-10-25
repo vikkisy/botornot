@@ -7,6 +7,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Login Page</title>
+	
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/yu_loginModal.css" />
 	<link rel="stylesheet" type="text/css" href="/css/yu_main.css" />
