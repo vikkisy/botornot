@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.front_logo {
+	display: block;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: #fff;
+}
+
+.page-front {
+	position: absolute;
+	left: 50%;
+	top: 45%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+.page-back {
+	position: absolute;
+	left: 51%;
+	top: 46%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+}
+
+.title {
+	text-align: center;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 50px;
+}
+
+.orangee {
+	color: orange;
+	font-size: 65px;
+	/* text-shadow: 3px 3px 3px gray; */
+}
+
+.errors {
+	color: red;
+	text-align: center;
+}
