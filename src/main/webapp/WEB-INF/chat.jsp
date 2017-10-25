@@ -34,7 +34,11 @@
             </form>
         </div>
         <div class="allUsers">
-
+        <ul>
+		<c:forEach items="${users}" var = "user">
+		<li>${user}</li>
+		</c:forEach>
+		</ul>
 		</div>
     </div>
     

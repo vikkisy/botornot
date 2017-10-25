@@ -13,12 +13,17 @@ import org.springframework.stereotype.Component;
 
 import com.jas.botornot.controllers.LoggedUser;
 import com.jas.botornot.models.ActiveUserStore;
+import com.jas.botornot.models.User;
+import com.jas.botornot.services.UserService;
 
 @Component("myAuthenticationSuccessHandler")
 public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
  
     @Autowired
     ActiveUserStore activeUserStore;
+    
+    @Autowired
+    UserService userService;
      
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, 
@@ -26,7 +31,8 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
       throws IOException {
         HttpSession session = request.getSession(false);
         if (session != null) {
-            LoggedUser user = new LoggedUser(authentication.getName(), activeUserStore);
+        		User curUser = userService.findByUsername(authentication.getName());
+            LoggedUser user = new LoggedUser(curUser.getIdentifier(), activeUserStore);
             session.setAttribute("user", user);
         }
 		response.setStatus(HttpServletResponse.SC_OK);

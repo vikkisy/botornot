@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.jas.botornot.controllers.SessionListener;
 import com.jas.botornot.models.ActiveUserStore;
 
 
@@ -21,6 +23,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public ActiveUserStore activeUserStore(){
         return new ActiveUserStore();
+    }
+    
+    @Bean
+    public SessionListener sessionListener() {
+    		return new SessionListener();
     }
     
     @Autowired

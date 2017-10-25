@@ -124,6 +124,7 @@ public class Main {
         String username = principal.getName();
         List<User> all = userService.findAll();
         model.addAttribute("all", all);
+        model.addAttribute("users", activeUserStore.getUsers());
         model.addAttribute("currentUser", userService.findByUsername(username));
     	return "chat";
     }
