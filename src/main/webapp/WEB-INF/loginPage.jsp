@@ -8,14 +8,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Login Page</title>
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="/css/loginModal.css" />
-	<link rel="stylesheet" type="text/css" href="/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="/css/yu_loginModal.css" />
+	<link rel="stylesheet" type="text/css" href="/css/yu_main.css" />
 	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 	
 	<!-- JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/js/loginModal.js"></script>
-	<script type="text/javascript" src="/js/main.js"></script>
+	<script type="text/javascript" src="/js/yu_loginModal.js"></script>
+	<script type="text/javascript" src="/js/yu_main.js"></script>
 </head>
 <body>
 	<div id="container">
