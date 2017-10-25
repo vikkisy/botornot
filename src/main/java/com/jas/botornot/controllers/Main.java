@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jas.botornot.models.ChatMessage;
 import com.jas.botornot.models.Role;
 import com.jas.botornot.models.User;
 import com.jas.botornot.services.UserService;
@@ -26,6 +27,7 @@ public class Main {
     private UserService userService;
     // NEW
     private UserValidator userValidator;
+    private ChatMessage chatMessage;
     
     // NEW
     public Main(UserService userService, UserValidator userValidator) {
@@ -109,7 +111,9 @@ public class Main {
     @RequestMapping("/chat")
     public String chatPage(Principal principal, Model model) {
         String username = principal.getName();
+        List<User> all = userService.findAll();
+        model.addAttribute("all", all);
         model.addAttribute("currentUser", userService.findByUsername(username));
-    		return "chat";
+    	return "chat";
     }
 }

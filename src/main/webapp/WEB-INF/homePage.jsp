@@ -16,15 +16,17 @@ width: 300px;
 <body>
 
 <h1>Welcome ${currentUser.identifier}!</h1>
+
+<button><a href="/chat">Let's Play!</a></button>
+
 <div id="box">
-<P>Username: ${currentUser.identifier}</P>
-<P>Email: ${currentUser.username}</P>
-<P>Sign up date: ${currentUser.createdAt}</P>
-<P>Last Sign in: ${currentUser.updatedAt}</P>
-    <form id="logoutForm" method="POST" action="/logout">
+<P>Your Stats </P>
+<P>Lost: </P>
+<P>Won: </P>
+</div>
+<form id="logoutForm" method="POST" action="/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="submit" value="Logout!" />
     </form>
-</div>
 </body>
 </html>
