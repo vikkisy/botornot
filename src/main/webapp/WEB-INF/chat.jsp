@@ -16,6 +16,7 @@
     <div id="chat-page" class="hidden">
         <div class="chat-container">
             <div class="chat-header">
+            		<ul id="users"></ul>
                 <h2>Spring WebSocket Chat Demo</h2>
             </div>
             <div class="connecting">

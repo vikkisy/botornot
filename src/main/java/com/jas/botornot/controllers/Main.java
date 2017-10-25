@@ -1,11 +1,15 @@
 package com.jas.botornot.controllers;
 
 import java.security.Principal;
-import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.broker.SubscriptionRegistry;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,9 +17,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.socket.config.WebSocketMessageBrokerStats;
 
-import com.jas.botornot.models.Role;
+import com.jas.botornot.models.ActiveUserStore;
 import com.jas.botornot.models.User;
 import com.jas.botornot.services.UserService;
 import com.jas.botornot.validator.UserValidator;
@@ -26,6 +32,9 @@ public class Main {
     private UserService userService;
     // NEW
     private UserValidator userValidator;
+    
+    @Autowired
+    ActiveUserStore activeUserStore;
     
     // NEW
     public Main(UserService userService, UserValidator userValidator) {
@@ -107,9 +116,15 @@ public class Main {
         return "redirect:/admin";
     }
     @RequestMapping("/chat")
-    public String chatPage(Principal principal, Model model) {
+    public String chatPage(Principal principal, Model model, HttpSession session) {
         String username = principal.getName();
         model.addAttribute("currentUser", userService.findByUsername(username));
     		return "chat";
     }
+    @RequestMapping(value = "/loggedUsers", method = RequestMethod.GET)
+    public String getLoggedUsers(Locale locale, Model model) {
+        model.addAttribute("users", activeUserStore.getUsers());
+        return "users";
+    }
+
 }
