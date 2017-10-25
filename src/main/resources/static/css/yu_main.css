@@ -93,6 +93,7 @@ body {
 .center1 {
 	position: absolute;
 	left: 50%;
+	margin-top: -100px;
 }
 
 .center2 {
@@ -108,6 +109,18 @@ body {
 	font-size: 40px;
 }
 
-stat_details {
-	text-align:center;
+.sDetails {
+	text-align: center;
+	font-family: 'Architects Daughter', cursive;
+}
+
+.play_btn {
+	height: 60px;
+	width: 400px;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	position: absolute;
+	top: 100%;
+	margin-top: -60px;
+	border: none;
 }

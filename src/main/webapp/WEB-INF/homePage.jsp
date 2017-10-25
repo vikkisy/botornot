@@ -8,6 +8,7 @@
 	
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/yu_main.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="/css/yu_loginModal.css" />
 	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 </head>
@@ -15,36 +16,68 @@
 <body>
 	
 	<div id="container">
-		
-		
-			
-		<h3 class="title" style="font-size:25px"><span class="orange">BOT</span> or Not</h3>
+
+		<%-- <h3 class="title" style="font-size:25px"><span class="orange">BOT</span> or Not</h3>
 		<h1 class="title_stat">Welcome <span class="orange"> ${currentUser.identifier}! </span></h1>
-		
-		<div class="center1">
-			<img class="stat_logo" src="/img/logo.png" height="200px"/>
-		</div>
 		
 		<div class="center2">
 			<div class="stat_container">
-
+				
+				<div class="center1">
+					<img class="stat_logo" src="/img/logo.png" height="200px"/>
+				</div>
+				
 				<h1 class="stats">Your Stats </h1>
-				<p class="stat_details">Lost: </p>
-				<p class="stat_details">Won: </p>
+				<h3 class="sDetails" >Lost: </h3>
+				<h3 class="sDetails" >Won: </h3>
 				
-				<button><a href="/chat">Let's Play!</a></button>
-				
-				<form id="logoutForm" method="POST" action="/logout">
-				    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-				    <input type="submit" value="Logout!" />
-				</form>
-
+				<button class="play_btn" onclick="window.location.href='/chat'">Let's Play!</button>
 			</div>
 		</div>
 		
-		
+		<form id="logoutForm" method="POST" action="/logout">
+		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		    <input type="submit" value="Logout!" />
+		</form>
+		 --%>
 		
 		<div class="orange_bg"></div>
+		
+		
+		<input type="hidden" id="name" value="${currentUser.identifier}"/>
+
+    <div id="chat-page" class="hidden">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>BOT OR NOT</h2>
+            </div>
+            <div class="connecting">
+                Connecting...
+            </div>
+            <ul id="messageArea">
+
+            </ul>
+            <form id="messageForm" name="messageForm" nameForm="messageForm">
+                <div class="form-group">
+                    <div class="input-group clearfix">
+                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                        <button type="submit" class="primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="allUsers">
+
+		</div>
+    </div>
+    
+    
+
+    <script src="/js/sockjs.min.js"></script>
+    <script src="/js/stomp.min.js"></script>
+    <script src="/js/main.js"></script>
+		
+		
 	</div>
 </body>
 </html>
