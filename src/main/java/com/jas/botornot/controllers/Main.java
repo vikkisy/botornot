@@ -123,10 +123,11 @@ public class Main {
     public String chatPage(Principal principal, Model model, HttpSession session) {
         String username = principal.getName();
         List<User> all = userService.findAll();
+
         model.addAttribute("all", all);
         model.addAttribute("users", activeUserStore.getUsers());
         model.addAttribute("currentUser", userService.findByUsername(username));
-    	return "chat";
+    	return "homePage";
     }
     @RequestMapping(value = "/loggedUsers", method = RequestMethod.GET)
     public String getLoggedUsers(Locale locale, Model model) {
