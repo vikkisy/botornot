@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,74 +21,82 @@
 <body >
 	
 	<div id="container">
-
-		<%-- <h3 class="title" style="font-size:25px"><span class="orange">BOT</span> or Not</h3>
-		<h1 class="title_stat">Welcome <span class="orange"> ${currentUser.identifier}! </span></h1>
-		
-		<div class="center2">
-			<div class="stat_container">
+		<!-- <div id="main_content"> -->
+			<h1 class="title_stat">Welcome <span class="orange"> ${currentUser.identifier}! </span></h1>
+			
+			<div id="stat_panel">
 				
-				<div class="center1">
-					<img class="stat_logo" src="/img/logo.png" height="200px"/>
+					<div class="stat_container">
+						
+						<div class="center1">
+							<img class="stat_logo" src="/img/logo.png" height="200px"/>
+						</div>
+						
+						<h1 class="stats">Your Stats </h1>
+						<h3 class="sDetails" >Lost: </h3>
+						<h3 class="sDetails" >Won: </h3>
+					</div>
+				
+			</div>
+			
+			
+			
+			<div class="orange_bg"></div>
+			
+			
+			<input type="hidden" id="name" value="${currentUser.identifier}"/>
+	
+		    <div id="chat-page" class="hidden">
+		    		<div class="center3">
+			        <div class="chat-container">
+			            <div class="chat-header">
+			                <h3 class="title" style="font-size:25px"><span class="orange">BOT</span> or Not</h3>
+			            </div>
+			            <div class="connecting">
+			                Connecting...
+			            </div>
+			            <ul id="messageArea">
+			
+			            </ul>
+			            <form id="messageForm" name="messageForm" nameForm="messageForm">
+			                <div class="form-group">
+			                    <div class="input-group clearfix">
+			                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+			                        <button type="submit" class="primary">Send</button>
+			                    </div>
+			                </div>
+			            </form>
+			        </div>
+	        		</div>
+	        		
+	        		<div class="allUsers">
+	        			<div class="chat-header">
+	        				<h3 class="title" style="font-size: 25px; color: orange">Active Users</h3>
+	        			</div>
+	        			
+					<c:forEach items="${users}" var="user" >
+						<p><c:out value="${user}" /></p>
+					</c:forEach>
+          <div id='timer'>
+  	    		<input type="button" value="start game" onClick="CreateTimer('timer', 30)">
+			    </div>
 				</div>
 				
-				<h1 class="stats">Your Stats </h1>
-				<h3 class="sDetails" >Lost: </h3>
-				<h3 class="sDetails" >Won: </h3>
-				
-				<button class="play_btn" onclick="window.location.href='/chat'">Let's Play!</button>
-			</div>
-		</div>
-		
-		<form id="logoutForm" method="POST" action="/logout">
-		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-		    <input type="submit" value="Logout!" />
-		</form>
-		 --%>
-		
-		<!-- <div class="orange_bg"></div> -->
-		
-		
-		<input type="hidden" id="name" value="${currentUser.identifier}"/>
-
-    <div id="chat-page" class="hidden">
-        <div class="chat-container">
-            <div class="chat-header">
-                <h2>BOT OR NOT</h2>
-            </div>
-            <div class="connecting">
-                Connecting...
-            </div>
-            <ul id="messageArea">
-
-            </ul>
-            <form id="messageForm" name="messageForm" nameForm="messageForm">
-                <div class="form-group">
-                    <div class="input-group clearfix">
-                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                        <button type="submit" class="primary">Send</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="allUsers">
-			<c:forEach items="${ users }" var="user">
-				<c:out value="${ user}"/>
-			</c:forEach>
-			<div id='timer'>
+				<form id="logoutForm" method="POST" action="/logout">
+				    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				    <input class="logout" type="submit" value="Logout!" />
+				</form>
 			
-
-
-			<input type="button" value="start game" onClick="CreateTimer('timer', 30)">
-			</div>
-		
-    </div>
+			
+	    		</div>
+    		<!-- </div> -->
+    
     
     
 
-    <script src="/js/sockjs.min.js"></script>
-    <script src="/js/stomp.min.js"></script>
-    <script src="/js/main.js"></script>
+	    <script src="/js/sockjs.min.js"></script>
+	    <script src="/js/stomp.min.js"></script>
+	    <script src="/js/main.js"></script>
 		
 		
 	</div>
