@@ -12,9 +12,12 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="/css/yu_loginModal.css" />
 	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+	<script type="text/javascript" src="/js/timer.js"></script>
+
+	
 </head>
 
-<body>
+<body >
 	
 	<div id="container">
 
@@ -68,8 +71,16 @@
             </form>
         </div>
         <div class="allUsers">
-		<c:out value="${users}"/>
-		</div>
+			<c:forEach items="${ users }" var="user">
+				<c:out value="${ user}"/>
+			</c:forEach>
+			<div id='timer'>
+			
+
+
+			<input type="button" value="start game" onClick="CreateTimer('timer', 30)">
+			</div>
+		
     </div>
     
     
