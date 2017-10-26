@@ -93,6 +93,7 @@ public class Main {
         }
         else {
             model.addAttribute("currentUser", current);
+            model.addAttribute("users", activeUserStore.getUsers());
             return "homePage";
         }
 

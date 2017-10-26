@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.jas.botornot.models.ChatMessage;
 import com.jas.botornot.models.Role;
 import com.jas.botornot.models.User;
 import com.jas.botornot.repositories.RoleRepository;
@@ -67,4 +68,5 @@ public class UserService {
     		user.setRoles(roleRepository.findByName("ROLE_ADMIN"));
     		userRepository.save(user);
     }
+
 } 

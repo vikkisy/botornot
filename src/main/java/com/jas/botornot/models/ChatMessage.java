@@ -1,6 +1,8 @@
 package com.jas.botornot.models;
 
+
 public class ChatMessage {
+	private int id;
     private MessageType type;
     private String content;
     private String sender;
@@ -10,6 +12,14 @@ public class ChatMessage {
         JOIN,
         LEAVE
     }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public MessageType getType() {
 		return type;
