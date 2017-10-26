@@ -1,8 +1,11 @@
 package com.jas.botornot.controllers;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -35,7 +38,10 @@ public class Main {
     // NEW
     private UserValidator userValidator;
     private ChatMessage chatMessage;
-    
+    private List<String> names = Arrays.asList("Sheila",
+    		"Deana", "Winford", "Janean", "William", "Eugena", "Morris", "Kimber", "Tresa", "Gregorio", "Jacki", "Nakesha", "Catherina", "Timothy", "Carlotta", "Peggie", "Arnoldo", "Nickolas", "Antonetta", "Candyce");
+
+    Random rand = new Random();
     @Autowired
     ActiveUserStore activeUserStore;
     
@@ -92,6 +98,8 @@ public class Main {
         		return "redirect:/admin";
         }
         else {
+        
+        		model.addAttribute("botName", names.get(rand.nextInt(names.size())));
             model.addAttribute("currentUser", current);
             model.addAttribute("users", activeUserStore.getUsers());
             return "homePage";

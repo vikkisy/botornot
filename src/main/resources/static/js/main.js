@@ -116,7 +116,7 @@ function onMessageReceived(payload) {
 
         var usernameElement = document.createElement('span');
         if (message.sender == "CleverBot"){
-        		var usernameText = document.createTextNode(names[Math.floor(Math.random() * names.length)]);
+        		var usernameText = document.createTextNode(document.querySelector('#botName').value.trim());
         }
         else{
             var usernameText = document.createTextNode(message.sender);

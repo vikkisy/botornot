@@ -43,7 +43,7 @@
 			
 			<div class="orange_bg"></div>
 			
-			
+			<input type="hidden" id="botName" value="${botName}"/>
 			<input type="hidden" id="name" value="${currentUser.identifier}"/>
 	
 		    <div id="chat-page" class="hidden">
