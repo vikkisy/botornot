@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -91,14 +93,15 @@ public class Main {
         return "loginPage";
     }
     @RequestMapping(value = {"/dashboard", "/home", "/"})
-    public String home(Principal principal, Model model) {
+    public String home(Principal principal, Model model, HttpServletResponse response) {
         String username = principal.getName();
         User current = userService.findByUsername(username);
         if(userService.findAdmins().contains(current)) {
         		return "redirect:/admin";
         }
         else {
-        
+        		Cookie cookie = new Cookie("ff", "dd");
+        		response.addCookie(cookie);
         		model.addAttribute("botName", names.get(rand.nextInt(names.size())));
             model.addAttribute("currentUser", current);
             model.addAttribute("users", activeUserStore.getUsers());

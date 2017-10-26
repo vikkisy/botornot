@@ -9,14 +9,14 @@
 	<title>Dashboard</title>
 	
 	<!-- CSS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/yu_main.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="/css/yu_loginModal.css" />
 	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
-	<script type="text/javascript" src="/js/timer.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/js/loadTimer.js"></script>	
 
-	
 </head>
 
 <body >
@@ -79,8 +79,14 @@
 						<p><c:out value="${user}" /></p>
 					</c:forEach>
 			        <div id='timer'>
-			  	    		<input type="button" value="start game" onClick="CreateTimer('timer', 5)">
+			        		<form method="POST" action="/dd" onsubmit="return false;">
+						   <button onclick="clickBut()">Start Game</button>
+						     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+						   
+						</form>
 				    </div>
+				    <div id="counter" style="show;"></div>
+					<div id="timerSeconds" style="display:none;">&nbsp;seconds to go</div>
 				</div>
 				
 				<form id="logoutForm" method="POST" action="/logout">
