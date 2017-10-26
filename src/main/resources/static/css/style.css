@@ -108,7 +108,7 @@ button.accent {
     text-align: center;
 }
 
-.username-page-container {
+/* .username-page-container {
     background: #fff;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
     border-radius: 2px;
@@ -126,26 +126,31 @@ button.accent {
     right: 0;
     margin: 0 auto;
     margin-top: -160px;
-}
+} */
 
 .username-page-container .username-submit {
     margin-top: 10px;
 }
 
-
 #chat-page {
     position: relative;
     height: 100%;
 }
+.center3 {
+	position: absolute;
+	left: 50%;
+	height: 100%;
+}
 
 .chat-container {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+	width: 400px;
+    position: relative;
+    left: -50%;
+    z-index: 30;
     background-color: #fff;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
     margin-top: 30px;
-    margin-left: 300px;
+    /* margin-left: 300px; */
     height: calc(100% - 60px);
     max-height: 600px;
     display: inline-block;
@@ -160,6 +165,10 @@ button.accent {
     padding: 0 20px 0px 20px;
     height: calc(100% - 150px);
 }
+
+/* #messageForm {
+	margin-top: -40px;
+} */
 
 #chat-page #messageForm {
     padding: 20px;
@@ -299,12 +308,33 @@ button.accent {
 }
 
 .allUsers {
-    	border: 1px solid black;
-    	width: 200px;
-    	z-index: 100;
-    	display: inline-block;
-    	margin-top: 35px;
-    	margin-left: 35px;
-    	vertical-align: top;
+    	width: 300px;
+    	z-index: 30;
+    position: absolute;
+    	left: 10%;
+    	top: 30px;
+    	text-align:center;
+    	padding: 20px;
+    	background-color: white;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+}
 
-    }
+/* #main_content {
+	width: 1000px;
+	height: 800px;
+} */
+
+.logout {
+	position: absolute;
+	top: 70%;
+	left: 66%;
+	z-index: 40;
+	height: 50px;
+	width: 405px;
+	background-color: red;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+	font-size: 25px;
+	font-family: 'Architects Daughter', cursive;
+}
