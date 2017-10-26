@@ -14,7 +14,6 @@
 	<link rel="stylesheet" type="text/css" href="/css/yu_loginModal.css" />
 	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 	<script type="text/javascript" src="/js/timer.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 	
 </head>
@@ -44,7 +43,7 @@
 			
 			<div class="orange_bg"></div>
 			
-			<input type="hidden" id="botName" value="${botName}"/>
+			
 			<input type="hidden" id="name" value="${currentUser.identifier}"/>
 	
 		    <div id="chat-page" class="hidden">
@@ -79,7 +78,7 @@
 						<p><c:out value="${user}" /></p>
 					</c:forEach>
 			        <div id='timer'>
-			  	    		<input type="button" value="start game" onClick="CreateTimer('timer', 5)">
+			  	    		<input type="button" value="start game" onClick="CreateTimer('timer', 30)">
 				    </div>
 				</div>
 				
@@ -91,36 +90,7 @@
 			
 	    		</div>
     		<!-- </div> -->
-    		
-    			<div class="modal">
-	
-	        		<div class="modal_close close"></div>
-	           	<div class="modal_main">
-	            	<img src="/img/closebtn.png" class="close" style="margin-top:13px;left:93%;position:fixed;">
-	
-	            	<p class="final_pick">Who's the BOT?</p>
-	            	<hr>
-				<form action="/pick" method="POST">
-					<select>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-					</select>
-				</form>
-	 	    		
-	 	    		
-	                	
-	            	
-	 	    		
-				<button>PICK</button>
-	            	
-	
-				</div>
-			</div>
+    
     
     
 
