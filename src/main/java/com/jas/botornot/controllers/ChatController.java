@@ -47,7 +47,6 @@ public class ChatController {
 
         return chatMessage;
     }
-    @MessageMapping("/chat.sendMessage")
     @SendTo("/channel/public")
     public ChatMessage sendMessageBot(@Payload ChatMessage chatMessage) {
     		
