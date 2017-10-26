@@ -145,5 +145,19 @@ public class Main {
         model.addAttribute("users", activeUserStore.getUsers());
         return "users";
     }
+    
+    @PostMapping("/pick")
+    public String result(@RequestParam("choice") String id, Model model) {
+    	System.out.println(id);
+    	if(id.equals("0")) {
+    		model.addAttribute("result", "You Won");
+    	}
+    	else {
+    		model.addAttribute("result", "You Lost");
+    	}
+
+    	return "result";
+    }
+
 
 }

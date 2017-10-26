@@ -106,25 +106,24 @@
 	
 	            	<p class="final_pick">Who's the BOT?</p>
 	            	<hr>
-				<form action="/pick" method="POST">
-					<select>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
-						<option>Test</option>
+				<form class="pick_form" action="/pick" method="POST">
+					<select class="pick_inputbox" name="choice">
+						<option value="0"><c:out value="${botName}" /></option>
+                    		<c:forEach items="${users}" var="user" >
+                        <option value="1"><c:out value="${user}" /></option>
+                    		</c:forEach>
 					</select>
+					
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<input type="submit" class="pick_btn" style="height: 45px" value="PICK"/>
 				</form>
 	 	    		
 	 	    		
 	                	
 	            	
 	 	    		
-				<button>PICK</button>
+				
 	            	
-	
 				</div>
 			</div>
     
