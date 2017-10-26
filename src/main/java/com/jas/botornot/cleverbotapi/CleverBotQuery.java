@@ -185,7 +185,7 @@ public class CleverBotQuery
         }
         else
         {
-            return url + key  + "&input=" + formattedPhrase + "&wrapper=Headline22JavaAPI" + "&cs=" + conversationID;
+            return url + key  + "&input=" + formattedPhrase + "&wrapper=Headline22JavaAPI" + "&cs=" + conversationID + "&cb_settings_tweak1=50&cb_settings_tweak2=80&cb_settings_tweak3=40";
         }
     }
 }
