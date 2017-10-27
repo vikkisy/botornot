@@ -24,7 +24,7 @@
 	<div id="container">
 		<!-- <div id="main_content"> -->
 			<h1 class="title_stat">Welcome <span class="orange"> ${currentUser.identifier}! </span></h1>
-			
+			<p class="instructions" ><span class="orange" style="font-size: 20px"> Instructions: </span> Press "Start Game" And Guess The Bot. Try To Throw Everyone Else Off By Acting Like A Bot!</p>
 			<div id="stat_panel">
 				
 					<div class="stat_container">

@@ -189,3 +189,9 @@ body {
 	font-size: 70px;
 	margin-top: 20px;
 }
+
+.instructions {
+	font-family: 'Architects Daughter', cursive;
+	text-align: center;
+	margin-top: -20px;
+}

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="/css/style.css" />
 	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 	
-	<title>Insert title here</title>
+	<title>Result</title>
 </head>
 <body>
 	<h1 class="result_title"><c:out value="${ result }"/></h1>
