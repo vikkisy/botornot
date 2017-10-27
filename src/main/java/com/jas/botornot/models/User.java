@@ -31,6 +31,8 @@ public class User {
 	private String password;
 	@Transient
 	private String passwordConf;
+	private int wonCount;
+	private int lossCount;
 	@Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
@@ -54,6 +56,19 @@ public class User {
 	}
 	public void setIdentifier(String identifier) {
 		this.identifier = identifier;
+	}
+	
+	public int getWonCount() {
+		return wonCount;
+	}
+	public void setWonCount(int wonCount) {
+		this.wonCount = wonCount;
+	}
+	public int getLossCount() {
+		return lossCount;
+	}
+	public void setLossCount(int lossCount) {
+		this.lossCount = lossCount;
 	}
 	public String getUsername() {
 		return username;

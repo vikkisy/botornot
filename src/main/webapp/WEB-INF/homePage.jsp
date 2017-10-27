@@ -6,17 +6,17 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Dashboard</title>
+	<title>Bot or Not!</title>
 	
 	<!-- CSS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/yu_main.css" />
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="/css/yu_loginModal.css" />
 	<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
-	<script type="text/javascript" src="/js/timer.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/js/loadTimer.js"></script>	
 
-	
 </head>
 
 <body >
@@ -34,8 +34,8 @@
 						</div>
 						
 						<h1 class="stats">Your Stats </h1>
-						<h3 class="sDetails" >Lost: </h3>
-						<h3 class="sDetails" >Won: </h3>
+						<h3 class="sDetails" >Won:  ${currentUser.wonCount}</h3>
+						<h3 class="sDetails" >Lost:  ${currentUser.lossCount}</h3>
 					</div>
 				
 			</div>
@@ -79,8 +79,14 @@
 						<p><c:out value="${user}" /></p>
 					</c:forEach>
 			        <div id='timer'>
-			  	    		<input type="button" value="start game" onClick="CreateTimer('timer', 5)">
+			        		<form method="POST" action="/dd" onsubmit="return false;">
+						   <button onclick="clickBut()">Start Game</button>
+						     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+						   
+						</form>
 				    </div>
+				    <div id="counter" style="show;"></div>
+					<div id="timerSeconds" style="display:none;">&nbsp;seconds to go</div>
 				</div>
 				
 				<form id="logoutForm" method="POST" action="/logout">
@@ -101,21 +107,16 @@
 	            	<p class="final_pick">Who's the BOT?</p>
 	            	<hr>
 				<form class="pick_form" action="/pick" method="POST">
-					<select class="pick_inputbox">
-						<option><c:out value="${botName}" /></option>
+					<select class="pick_inputbox" name="choice">
+						<option value="0"><c:out value="${botName}" /></option>
                     		<c:forEach items="${users}" var="user" >
-                        	<option><c:out value="${user}" /></option>
+                        <option value="1"><c:out value="${user}" /></option>
                     		</c:forEach>
 					</select>
+					
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-					<button type="submit" class="pick_btn" style="height: 45px">PICK</button>
+					<input type="submit" class="pick_btn" style="height: 45px" value="PICK"/>
 				</form>
-	 	    		
-	 	    		
-	                	
-	            	
-	 	    		
-				
 	            	
 				</div>
 			</div>
