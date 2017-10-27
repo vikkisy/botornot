@@ -35,7 +35,8 @@ public class Main {
     private UserValidator userValidator;
     private ChatMessage chatMessage;
     private List<String> names = Arrays.asList("Sheila",
-    		"Deana", "Winford", "Janean", "William", "Eugena", "Morris", "Kimber", "Tresa", "Gregorio", "Jacki", "Nakesha", "Catherina", "Timothy", "Carlotta", "Peggie", "Arnoldo", "Nickolas", "Antonetta", "Candyce");
+    		"Deana", "Winford", "Janean", "William", "Eugena", "Morris", "Kimber", "Tresa", "Gregorio", "Jacki", "Nakesha", "Catherina", "Timothy", "Carlotta", "Peggie", "Arnoldo", "Nickolas", "Antonetta", "Candyce", "Tupac", "Biggie", "Jay-Z", "Beyonce", "Bieber", "2Chainz", "CardiB", "Dicky", "Pump", "Miley", "Katy", "Kanye", "Yeezy", "Sean", "Selena", "Future", "Taylor", "Sheeran", "Eminem", "Drake", "Yachty", "Nate", "JCole", "Dram", "Logic", "Calvin", "Rihanna", "Khalid", "Alessia", "Kendrick", "Desiigner", "Uzi", "Kodak", "Jeremih", "Nicki", "Remy", "Nicole", "Jessie", "Gaga", "Demi", "Hailee", "JLo", "MaryJ");
+
 
     Random rand = new Random();
     @Autowired
