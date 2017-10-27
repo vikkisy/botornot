@@ -2,11 +2,13 @@
 package com.jas.botornot.cleverbotapi;
 
 import java.net.*;
+import java.util.Random;
 import java.io.*;
 import com.google.gson.*;
 
 public class CleverBotQuery
 {
+
     /* Constants */
 	
 	/**
@@ -178,14 +180,18 @@ public class CleverBotQuery
 	*/
     private static String formatRequest(String url, String key, String phrase, String conversationID)
     {
+	    	Random rand = new Random();
+	    	int rand1 = rand.nextInt(100) + 1;
+	    	int rand2 = rand.nextInt(100) + 1;
+	    	int rand3 = rand.nextInt(100) + 1;
         String formattedPhrase = phrase.replace(' ', '+');
         if (conversationID.equals(""))
         {
-            return url + key + "&input=" + formattedPhrase + "&wrapper=Headline22JavaAPI";
+            return url + key + "&input=" + formattedPhrase + "&wrapper=Headline22JavaAPI" + "&cb_settings_tweak1=" + rand1 +  "&cb_settings_tweak2=" + rand2 +  "&cb_settings_tweak3=" + rand3;
         }
         else
         {
-            return url + key  + "&input=" + formattedPhrase + "&wrapper=Headline22JavaAPI" + "&cs=" + conversationID + "&cb_settings_tweak1=50&cb_settings_tweak2=80&cb_settings_tweak3=40";
+            return url + key  + "&input=" + formattedPhrase + "&wrapper=Headline22JavaAPI" + "&cs=" + conversationID + "&cb_settings_tweak1=" + rand1 +  "&cb_settings_tweak2=" + rand2 +  "&cb_settings_tweak3=" + rand3;
         }
     }
 }

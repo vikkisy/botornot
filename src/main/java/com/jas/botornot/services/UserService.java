@@ -68,5 +68,8 @@ public class UserService {
     		user.setRoles(roleRepository.findByName("ROLE_ADMIN"));
     		userRepository.save(user);
     }
+    public void update(User user) {
+    		userRepository.save(user);
+    }
 
 } 

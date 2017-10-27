@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Dashboard</title>
+	<title>Bot or Not!</title>
 	
 	<!-- CSS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>	
@@ -34,8 +34,8 @@
 						</div>
 						
 						<h1 class="stats">Your Stats </h1>
-						<h3 class="sDetails" >Lost: </h3>
-						<h3 class="sDetails" >Won: </h3>
+						<h3 class="sDetails" >Won:  ${currentUser.wonCount}</h3>
+						<h3 class="sDetails" >Lost:  ${currentUser.lossCount}</h3>
 					</div>
 				
 			</div>
@@ -117,12 +117,6 @@
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<input type="submit" class="pick_btn" style="height: 45px" value="PICK"/>
 				</form>
-	 	    		
-	 	    		
-	                	
-	            	
-	 	    		
-				
 	            	
 				</div>
 			</div>

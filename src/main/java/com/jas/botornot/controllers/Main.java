@@ -1,7 +1,6 @@
 package com.jas.botornot.controllers;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -13,8 +12,6 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.messaging.simp.broker.SubscriptionRegistry;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,11 +21,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.socket.config.WebSocketMessageBrokerStats;
-
 import com.jas.botornot.models.ActiveUserStore;
 import com.jas.botornot.models.ChatMessage;
-import com.jas.botornot.models.Role;
 import com.jas.botornot.models.User;
 import com.jas.botornot.services.UserService;
 import com.jas.botornot.validator.UserValidator;
@@ -147,13 +141,21 @@ public class Main {
     }
     
     @PostMapping("/pick")
-    public String result(@RequestParam("choice") String id, Model model) {
+    public String result(@RequestParam("choice") String id, Model model, Principal principal) {
+    String username = principal.getName();
+    User current = userService.findByUsername(username);
     	System.out.println(id);
     	if(id.equals("0")) {
     		model.addAttribute("result", "You Won");
+    		int prev = current.getWonCount();
+    		current.setWonCount(prev+1);
+    		userService.update(current);
     	}
     	else {
     		model.addAttribute("result", "You Lost");
+    		int prev = current.getLossCount();
+    		current.setLossCount(prev+1);
+    		userService.update(current);
     	}
 
     	return "result";
