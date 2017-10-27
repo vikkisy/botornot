@@ -108,7 +108,13 @@ function onMessageReceived(payload) {
         messageElement.classList.add('chat-message');
 
         var avatarElement = document.createElement('i');
-        var avatarText = document.createTextNode(message.sender[0]);
+        if (message.sender == "CleverBot"){
+            var avatarText = document.createTextNode(document.querySelector('#botName').value.trim()[0]);
+
+        }else{
+            var avatarText = document.createTextNode(message.senderName[0]);
+
+        }
         avatarElement.appendChild(avatarText);
         avatarElement.style['background-color'] = getAvatarColor(message.sender);
 
@@ -119,7 +125,7 @@ function onMessageReceived(payload) {
         		var usernameText = document.createTextNode(document.querySelector('#botName').value.trim());
         }
         else{
-            var usernameText = document.createTextNode(message.sender);
+            var usernameText = document.createTextNode(message.senderName);
         }
         usernameElement.appendChild(usernameText);
         messageElement.appendChild(usernameElement);

@@ -5,17 +5,17 @@ import java.util.List;
 
 public class ActiveUserStore {
 	 
-    public List<String> users;
+    public List<Object> users;
  
     public ActiveUserStore() {
-        users = new ArrayList<String>();
+        users = new ArrayList<Object>();
     }
 
-	public List<String> getUsers() {
+	public List<Object> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<String> users) {
+	public void setUsers(List<Object> users) {
 		this.users = users;
 	}
  

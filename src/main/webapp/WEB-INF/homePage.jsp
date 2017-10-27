@@ -43,7 +43,6 @@
 			
 			
 			<div class="orange_bg"></div>
-			
 			<input type="hidden" id="botName" value="${botName}"/>
 			<input type="hidden" id="name" value="${currentUser.identifier}"/>
 	
@@ -76,10 +75,10 @@
 	        			</div>
 	        			
 					<c:forEach items="${users}" var="user" >
-						<p><c:out value="${user}" /></p>
+						<p><c:out value="${user.username}" /></p>
 					</c:forEach>
 			        <div id='timer'>
-			        		<form method="POST" action="/dd" onsubmit="return false;">
+			        		<form method="POST" onsubmit="return false;">
 						   <button onclick="clickBut()">Start Game</button>
 						     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 						   
@@ -110,7 +109,7 @@
 					<select class="pick_inputbox" name="choice">
 						<option value="0"><c:out value="${botName}" /></option>
                     		<c:forEach items="${users}" var="user" >
-                        <option value="1"><c:out value="${user}" /></option>
+                        <option value="1"><c:out value="${user.nickname}" /></option>
                     		</c:forEach>
 					</select>
 					

@@ -33,6 +33,7 @@ public class User {
 	private String passwordConf;
 	private int wonCount;
 	private int lossCount;
+	private String nickname;
 	@Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
@@ -90,6 +91,12 @@ public class User {
 	}
 	public Date getCreatedAt() {
 		return createdAt;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;

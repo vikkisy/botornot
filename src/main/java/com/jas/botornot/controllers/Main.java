@@ -1,6 +1,7 @@
 package com.jas.botornot.controllers;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -88,18 +89,18 @@ public class Main {
         return "loginPage";
     }
     @RequestMapping(value = {"/dashboard", "/home", "/"})
-    public String home(Principal principal, Model model, HttpServletResponse response) {
+    public String home(Principal principal, Model model) {
         String username = principal.getName();
         User current = userService.findByUsername(username);
+        List userList = activeUserStore.getUsers();
+
         if(userService.findAdmins().contains(current)) {
         		return "redirect:/admin";
         }
         else {
-        		Cookie cookie = new Cookie("ff", "dd");
-        		response.addCookie(cookie);
         		model.addAttribute("botName", names.get(rand.nextInt(names.size())));
             model.addAttribute("currentUser", current);
-            model.addAttribute("users", activeUserStore.getUsers());
+            model.addAttribute("users", userList);
             return "homePage";
         }
 

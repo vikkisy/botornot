@@ -2,6 +2,7 @@ package com.jas.botornot.controllers;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -30,12 +31,26 @@ public class ChatController {
 	
     @Autowired
     ActiveUserStore activeUserStore;
+    
+    UserService userService;
+    
+    public ChatController(UserService userService) {
+    		this.userService = userService;
+    }
+    
+    private List<String> names = Arrays.asList("Sheila",
+    		"Deana", "Winford", "Janean", "William", "Eugena", "Morris", "Kimber", "Tresa", "Gregorio", "Jacki", "Nakesha", "Catherina", "Timothy", "Carlotta", "Peggie", "Arnoldo", "Nickolas", "Antonetta", "Candyce", "Tupac", "Biggie", "Jay-Z", "Beyonce", "Bieber", "2Chainz", "CardiB", "Dicky", "Pump", "Miley", "Katy", "Kanye", "Yeezy", "Sean", "Selena", "Future", "Taylor", "Sheeran", "Eminem", "Drake", "Yachty", "Nate", "JCole", "Dram", "Logic", "Calvin", "Rihanna", "Khalid", "Alessia", "Kendrick", "Desiigner", "Uzi", "Kodak", "Jeremih", "Nicki", "Remy", "Nicole", "Jessie", "Gaga", "Demi", "Hailee", "JLo", "MaryJ");
+    Random rand = new Random();
 
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/channel/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+    public ChatMessage sendMessage(@Payload ChatMessage chatMessage, Principal principal) {
+    		String username = principal.getName();
+    		User current = userService.findByUsername(username);
     		chatMessage.setId(activeUserStore.getUsers().indexOf(chatMessage.getSender())+1);
+    		chatMessage.setSender(names.get(rand.nextInt(names.size())));
+    		chatMessage.setSenderName(current.getNickname());
     		sendMessageBot(chatMessage);
         return chatMessage;
     }
