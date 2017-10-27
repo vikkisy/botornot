@@ -11,4 +11,16 @@
 		</dir>
 	</classpath>
 
+	<web>
+		<link target="/">
+			<dir name="/Users/jas/Documents/Coding_Dojo/Java/Web/springProjects/botornot/target/m2e-wtp/web-resources">
+				<exclude name="/"/>
+			</dir>
+		</link>
+		<link target="/">
+			<dir name="/Users/jas/Documents/Coding_Dojo/Java/Web/springProjects/botornot/src/main/webapp">
+			</dir>
+		</link>
+	</web>
+
 </application>

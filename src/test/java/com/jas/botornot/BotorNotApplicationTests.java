@@ -1,4 +1,4 @@
-package com.jas.loginreg;
+package com.jas.botornot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class LoginregApplicationTests {
+public class BotorNotApplicationTests {
 
 	@Test
 	public void contextLoads() {
